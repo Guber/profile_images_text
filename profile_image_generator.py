@@ -1,4 +1,5 @@
 from PIL import Image, ImageDraw, ImageFont
+import string
 
 """ Generic letters profile image generator.
 
@@ -7,7 +8,7 @@ placeholder when user hasn't uploaded a custom profile image. The idea is tu hav
 images that depend on users initials, making the UX better and richer in comparison to just using a single generic 
 placeholder image.
 
-This script can be used to generate a customizable set of such images - sizes, fonts and colors can be changed to fit
+This script can be used to generate a customizable set of such images - sizes, example and colors can be changed to fit
 the application in which generated images can be used.
 
 The core functionality uses PIL library.
@@ -28,7 +29,7 @@ Todo:
 
 
 def generate_profile_image(filename, text, font, text_color, image_dimensions, background_color, circle_padding,
-                           circle_color, type='JPEG', quality=90):
+                           circle_color, imgtype='JPEG', quality=90):
     """ Generates a generic user profile image.
 
     Args:
@@ -55,35 +56,30 @@ def generate_profile_image(filename, text, font, text_color, image_dimensions, b
         (circle_padding, circle_padding, image_dimensions[0] - circle_padding, image_dimensions[1] - circle_padding),
         fill=circle_color)
 
-    text_pos = ((image_dimensions[0] - fnt.getsize(text)[0]) / 2 - circle_padding,
-                (image_dimensions[0] - fnt.getsize(text)[1]) / 2 - circle_padding)
+    text_pos = ((image_dimensions[0] - font.getsize(text)[0]) / 2,
+                (image_dimensions[0] - font.getsize(text)[1]) / 2 - circle_padding)
 
     d.text(text_pos, text, font=font, fill=text_color)
 
     img = img.resize((700, 700), Image.ANTIALIAS)
-    img.save(filename, type, quality=quality, optimize=True, progressive=True)
+    img.save(filename, imgtype, quality=quality, optimize=True, progressive=True)
 
 
-if __name__ == "__main__":
+def main():
     image_dimensions = (1440, 1440)
     circle_padding = 40
     circle_color = '#29C4AF'
     background_color = 'white'
-    # fnt = ImageFont.truetype('./Raleway-Bold.ttf', 500)
-    fnt = ImageFont.truetype('/Library/Fonts/Arial.ttf', 500)
+    fnt = ImageFont.truetype('./example/fonts/Raleway.ttf', 500)
     text_color = 'white'
-    type = 'JPEG'
-    quality = 80
-
-    # alphabet = ['a', 'b', 'c', 'ć', 'č', 'd', 'đ', 'dž', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'lj', 'm', 'n',
-    #            'nj', 'o', 'p', 'r', 's', 'š', 't', 'u', 'v', 'z', 'ž', 'q', 'w', 'y', 'x']
-    import string
-
-    alphabet = list(string.ascii_uppercase)
-
+    alphabet = list(string.ascii_uppercase) + ['Č', 'Ć', 'Š', 'Ž']
     for c_1 in alphabet:
         for c_2 in alphabet:
             text = (c_1 + " " + c_2).upper()
-            filename = './profiles_images/' + text + '.jpeg'
+            filename = './profile_images/' + text.replace(' ', '_') + '.jpeg'
             generate_profile_image(filename, text, fnt, text_color, image_dimensions, background_color, circle_padding,
                                    circle_color)
+
+
+if __name__ == '__main__':
+    main()
