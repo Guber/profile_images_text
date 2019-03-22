@@ -22,7 +22,7 @@ Python v2.7 or 3+ with PIL - Python Imaging Library (Pillow).
 
 ## Example of a generated image
 
-![Generated iamge with letters 'H J'](https://int-rev.com/demo/profile-images-generator/H%20J.jpeg)
+![Generated iamge with letters 'H J'](https://int-rev.com/demo/profile-images-generator/H%20J.jpg)
 
 ## Todo
 
