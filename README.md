@@ -22,7 +22,7 @@ Python v2.7 or 3+ with PIL - Python Imaging Library (Pillow).
 
 ## Example of a generated image
 
-![Generated iamge with letters 'E G'](https://int-rev.com/demo/profile-images-generator/E%20G.jpeg)
+![Generated iamge with letters 'H J'](https://int-rev.com/demo/profile-images-generator/H%20J.jpeg)
 
 ## Todo
 
@@ -33,4 +33,6 @@ Features to be added:
     - more anti-aliasing options
     - better example
 
+## Where is it used?
 
+This profiles image generator is used at [milenial.eu](https://milenial.eu), an awesome influencer marketing platform.
