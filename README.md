@@ -1,4 +1,5 @@
-Generic letters profile image generator.
+# Generic letters profile image generator
+
 
 This script allows the user to generate images for user profiles, that can be used in any application as a default
 placeholder when user hasn't uploaded a custom profile image. The idea is tu have a range of placeholder profile
@@ -13,10 +14,23 @@ The core functionality uses PIL library.
 This file can also be imported as a module and contains the following
 functions:
 
-    * profile_image_generator - generates a generic user profile image
+    - profile_image_generator - generates a generic user profile image
 
-Todo:
-    * add ability to be called from terminal with a hel function
-    * add more customization options (no circle, circle :) )
-    * more anti-aliasing options
-    * better example
+## Requirements
+
+Python v2.7 or 3+ with PIL - Python Imaging Library (Pillow).
+
+## Example of a generated image
+
+![Generated iamge with letters 'E G'](https://int-rev.com/demo/profile-images-generator/E%20G.jpeg)
+
+## Todo
+
+Features to be added:
+
+    - add ability to be called from terminal with a help function
+    - add more customization options (no circle, circle :) )
+    - more anti-aliasing options
+    - better example
+
+
