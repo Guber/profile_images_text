@@ -72,7 +72,7 @@ def main():
     background_color = 'white'
     fnt = ImageFont.truetype('./example/fonts/Raleway.ttf', 500)
     text_color = 'white'
-    alphabet = list(string.ascii_uppercase) + ['Č', 'Ć', 'Š', 'Ž']
+    alphabet = list(string.ascii_uppercase) + ['Č', 'Ć', 'Š', 'Ž', 'Đ']
     for c_1 in alphabet:
         for c_2 in alphabet:
             text = (c_1 + " " + c_2).upper()
